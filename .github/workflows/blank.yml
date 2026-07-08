@@ -19,7 +19,11 @@ jobs:
 
   github-task-job:
 
+    runs-on: ubuntu-latest
+
     steps:
+
+      - uses: actions/checkout@v4
 
       - name: usage of variable
         run: echo "My message is I ${{ env.GITHUB_ACTIONS }}"
@@ -30,7 +34,6 @@ jobs:
       - name: event  
         run: echo "Trigger event is ${{ github.event_name }}"
 
-    runs-on: ubuntu-latest
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
