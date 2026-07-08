@@ -5,16 +5,32 @@ name: eugeneermakov696
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env: 
+  GITHUB_ACTIONS: hello_mates))
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  github-task-job:
+
+    steps:
+
+      - name: usage of variable
+        run: echo "My message is I ${{ env.GITHUB_ACTIONS }}"
+
+      - name: presantation of branch and repo names
+        run: echo "Branch name is ${{ github.ref }}, repo name is ${{ github.repository }}"
+
+      - name: event  
+        run: echo "Trigger event is ${{ github.event_name }}"
+
+    runs-on: ubuntu-latest
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
